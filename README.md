@@ -1,5 +1,6 @@
 # SteamDeck Refresh Rate Unlocker
-This repository contains the instructions and scripts on how to unlock the Steam Deck under SteamOS to use upto 70Hz refresh rate for the display (do not confuse this with FPS).
+This repository contains the instructions and scripts on how to unlock the Steam Deck under SteamOS to use upto 70Hz refresh rate for the display (do not confuse this with FPS). \
+Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 
 ## Disclaimer
 1. Do this at your own risk!
