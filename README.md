@@ -37,7 +37,7 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 ![image](https://user-images.githubusercontent.com/98122529/225724178-364284ac-f504-4798-b5e5-a03001dda5da.png)
 
    a. If the sudo password is already set, enter the current sudo password and the script will continue to run. Once you see this screen then the install is done!\
-![image](https://user-images.githubusercontent.com/98122529/225725837-bd20f1f7-fc08-4016-9006-99431aeec605.png)
+![image](https://user-images.githubusercontent.com/98122529/225747904-d0352779-40ef-4dfb-afad-c473b2a9bc5b.png)
 
    b. If wrong sudo password is provided the script will exit immdediately. Re-run the script and enter the correct sudo password!\
 ![image](https://user-images.githubusercontent.com/98122529/225724539-d73dc9ce-c468-49d1-8d2c-83276bfc34bb.png)
