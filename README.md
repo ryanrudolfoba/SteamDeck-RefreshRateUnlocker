@@ -31,6 +31,7 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 1. sudo password should already be set by the end user. If sudo password is not yet set, the script will ask to set it up.
 
 ## Installation Steps
+**IF YOU ARE USING AN OLDER VERSION OF THIS SCRIPT, UNINSTALL IT FIRST!**\
 1. Go into Desktop Mode and open a konsole terminal.
 2. Clone the github repo. \
    cd ~/ \
