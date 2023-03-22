@@ -52,7 +52,8 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
          
    c. If the sudo password is blank / not yet set, the script will prompt to setup the sudo password. Re-run the script again to continue.\
 ![image](https://user-images.githubusercontent.com/98122529/225725477-33f8ffaa-13a1-452e-b993-aceb3192726f.png)
-         
+
+
 5. Make your selection.\
 ![image](https://user-images.githubusercontent.com/98122529/226789985-311f4632-f1a7-4c6c-9862-a03872f9276d.png)
 
