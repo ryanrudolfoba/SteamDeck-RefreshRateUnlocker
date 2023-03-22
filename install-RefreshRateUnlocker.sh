@@ -44,21 +44,45 @@ else
 fi
 
 
-# check gamescope-session if it needs to be patched
-grep STEAM_DISPLAY_REFRESH_LIMITS=40,60 /bin/gamescope-session
-if [ $? -eq 0 ]
-then	echo -e "$RED"gamescope-session needs to be patched!
-	sudo steamos-readonly disable
-	echo Backup exising gamescope-session.
-	sudo cp /bin/gamescope-session /bin/gamescope-session.backup
-	echo Patch the gamescope-session.
-	sed 's/STEAM_DISPLAY_REFRESH_LIMITS=40,60/STEAM_DISPLAY_REFRESH_LIMITS=40,70/g' /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
-	sudo cp /bin/gamescope-session.patched /bin/gamescope-session
-	sudo steamos-readonly enable
-else
-	echo -e "$GREEN"gamescope-session already patched, no action needed.
-fi
+###### Main menu. Ask user for the preferred refresh rate limit
 
+Choice=$(zenity --width 1100 --height 300 --list --radiolist --multiple --title "Refresh Rate Unlocker - https://github.com/ryanrudolfoba/SteamOS-RefreshRateUnlocker"\
+	--column "Select One" \
+	--column "Refresh Rate Limit" \
+	--column="Comments - Read this carefully!"\
+	FALSE 30,60 "Set the refresh rate limit to 30Hz - 60Hz. Underclock lower limit set to 30Hz and upper limit set to default 60Hz."\
+	FALSE 30,70 "Set the refresh rate limit to 30Hz - 70Hz. Underclock lower limit to 30Hz and overclock upper limit to 70Hz."\
+	FALSE 40,70 "Set the refresh rate limit to 40Hz - 70Hz. Lower limit set to default 40Hz and overclock upper limit to 70Hz"\
+	TRUE EXIT "Select this if you changed your mind and don't want to proceed anymore.")
+
+#[[ $? = 0 ]] || echo User pressed CANCEL. Exit immdediately. ; exit 
+
+if [ $? -eq 1 ]
+then
+	echo User pressed CANCEL. Make no changes. Exiting immediately.
+	exit
+
+elif [ "$Choice" == "EXIT" ]
+then
+	echo User selected EXIT. Make no changes. Exiting immediately.
+	exit
+
+else
+	# check gamescope-session if it needs to be patched
+	grep STEAM_DISPLAY_REFRESH_LIMITS=40,60 /bin/gamescope-session
+	if [ $? -eq 0 ]
+	then	echo -e "$RED"gamescope-session needs to be patched!
+		sudo steamos-readonly disable
+		echo Backup existing gamescope-session.
+		sudo cp /bin/gamescope-session /bin/gamescope-session.backup
+		echo Patch the gamescope-session.
+		sed "s/STEAM_DISPLAY_REFRESH_LIMITS=40,60/STEAM_DISPLAY_REFRESH_LIMITS=$Choice/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
+		sudo cp /bin/gamescope-session.patched /bin/gamescope-session
+		sudo steamos-readonly enable
+	else
+		echo -e "$GREEN"gamescope-session already patched, no action needed.
+	fi
+fi
 #################################################################################
 ################################ post install ###################################
 #################################################################################
@@ -101,19 +125,19 @@ cat /etc/os-release >> \$RefreshRateUnlockerStatus
 
 
 # check gamescope file if it needs to be patched
-grep STEAM_DISPLAY_REFRESH_LIMITS=40,60 /bin/gamescope-session
+grep STEAM_DISPLAY_REFRESH_LIMITS=$Choice /bin/gamescope-session
 if [ \$? -eq 0 ]
-then	echo gamescope-session needs to be patched! >> \$RefreshRateUnlockerStatus
+then	echo gamescope-session already patched, no action needed. >> \$RefreshRateUnlockerStatus
+else
+	echo gamescope-session needs to be patched! >> \$RefreshRateUnlockerStatus
 	sudo steamos-readonly disable >> \$RefreshRateUnlockerStatus
 	echo Backup exising gamescope-session. >> \$RefreshRateUnlockerStatus
 	sudo cp /bin/gamescope-session /bin/gamescope-session.backup
 	echo Patch the gamescope-session. >> \$RefreshRateUnlockerStatus
-	sed 's/STEAM_DISPLAY_REFRESH_LIMITS=40,60/STEAM_DISPLAY_REFRESH_LIMITS=40,70/g' /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
+	sed "s/STEAM_DISPLAY_REFRESH_LIMITS=40,60/STEAM_DISPLAY_REFRESH_LIMITS=$Choice/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
 	sudo cp /bin/gamescope-session.patched /bin/gamescope-session
 	ls /bin/gamescope* >> \$RefreshRateUnlockerStatus
 	sudo steamos-readonly enable
-else
-	echo gamescope-session already patched, no action needed. >> \$RefreshRateUnlockerStatus
 fi
 
 EOF
