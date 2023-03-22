@@ -6,15 +6,22 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 1. Do this at your own risk!
 2. This is for educational and research purposes only!
 
+## Screenshot - choose from one of the options
+![image](https://user-images.githubusercontent.com/98122529/226790044-33a74e6a-bd1b-480a-a6f6-fca891d8aed6.png)
+
 ## Screenshot - 70Hz Display Refresh Rate
 ![image](https://user-images.githubusercontent.com/98122529/225729639-3bb46a85-6ffd-49ac-808d-acd518fc30ce.png)
 
-## What's New (as of March 16 2023)
+## What's New (as of March 21 2023)
+1. added 3 options to choose from - 30,60Hz 30,70Hz and 40,70Hz
+
+## Old Changelog
+**March 16 2023**
 1. initial release
 
 ## What does this script do?!?
 1. The script checks if the gamescope-session is using the default values 40,60Hz refresh rates.
-2. If it's the default values, the script will create a backup of the file and then "patches" it to use 40,70Hz.
+2. If it's the default values, the script will create a backup of the file and then "patches" accordingly to what the user has chosen.
 3. The script creates a folder called ~/1RefreshRateUnlocker that contains additional helper scripts. Do not delete this folder!
 4. The script checks the gamescope-session every startup if it needs to be "patched" and applies the patch if needed.
 5. There is an uninstall script if end-user wants to revert any changes made.
@@ -45,9 +52,12 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
    c. If the sudo password is blank / not yet set, the script will prompt to setup the sudo password. Re-run the script again to continue.\
 ![image](https://user-images.githubusercontent.com/98122529/225725477-33f8ffaa-13a1-452e-b993-aceb3192726f.png)
          
-5. Once the install is done, reboot the Steam Deck for changes to take effect.
+5. Make your selection.
+![image](https://user-images.githubusercontent.com/98122529/226789985-311f4632-f1a7-4c6c-9862-a03872f9276d.png)
+
+6. Once the install is done, reboot the Steam Deck for changes to take effect.
          
-5. After reboot, the custom refresh rate will be available. It can be set as high as 70Hz!\
+7. After reboot, the custom refresh rate will be available. It can be set as high as 70Hz!\
 ![image](https://user-images.githubusercontent.com/98122529/225729592-a172cf55-f34c-400a-be56-e2dc68032c4e.png)
 
 
