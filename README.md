@@ -12,10 +12,19 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 ## Screenshot - 70Hz Display Refresh Rate
 ![image](https://user-images.githubusercontent.com/98122529/225729639-3bb46a85-6ffd-49ac-808d-acd518fc30ce.png)
 
-## What's New (as of March 21 2023)
-1. added 3 options to choose from - 30,60Hz 30,70Hz and 40,70Hz
+## Screenshot - Check if systemd service is running from game mode
+![image](https://user-images.githubusercontent.com/98122529/227315863-6abdc854-541e-4938-a7be-405d7a38a7ca.png)
+![image](https://user-images.githubusercontent.com/98122529/227315943-e3d8273e-e10b-4415-8df4-6f558e283f89.png)
+
+
+## What's New (as of March 23 2023)
+1. rewrite script to use systemd service
+2. additional logic for the uninstall
 
 ## Old Changelog
+**March 21 2023**
+1. added 3 options to choose from - 30,60Hz 30,70Hz and 40,70Hz
+
 **March 16 2023**
 1. initial release
 
@@ -25,7 +34,6 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 3. The script creates a folder called ~/1RefreshRateUnlocker that contains additional helper scripts. Do not delete this folder!
 4. The script checks the gamescope-session every startup if it needs to be "patched" and applies the patch if needed.
 5. There is an uninstall script if end-user wants to revert any changes made.
-6. Doesn't rely on systemd service and will likely survive on branch changes / SteamOS updates.
 
 ## Prerequisites for SteamOS
 1. sudo password should already be set by the end user. If sudo password is not yet set, the script will ask to set it up.
@@ -62,6 +70,25 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
          
 7. After reboot, the custom refresh rate will be available. It can be set as high as 70Hz!\
 ![image](https://user-images.githubusercontent.com/98122529/225729592-a172cf55-f34c-400a-be56-e2dc68032c4e.png)
+
+
+## Optional - Add as non-steam game to easily check if the service is running
+1. Go to Desktop Mode and open up the Steam Client.\
+2. On the lower left, click Add Game > Add a Non-Steam Game.\
+3. Select any item from the list it doesn't matter as we will change the parameters later on. For this example I chose Ark, and the press Add Selected Programs.\
+![image](https://user-images.githubusercontent.com/98122529/227317668-d0a39f51-374a-4452-9216-e639ba2618d9.png) \
+4. Find the Ark from the list and select Properties.\
+5. Change the shorcut name to 1 - Refresh Rate Unlocker Service Status.\
+6. For the target, leave it blank.\
+7. For the start in, leave it blank.\
+8. For the launch option, enter - /home/deck/1RefreshRateUnlocker/check-service-status.sh \
+9. This is how it should look like - \
+![image](https://user-images.githubusercontent.com/98122529/227318467-c75a1f80-db0f-42a3-8c5a-366946f09798.png) \
+10. If everything looks OK just close that screen. Run the shortcut to verify it works.
+![image](https://user-images.githubusercontent.com/98122529/227318770-7d921d05-5013-4b62-b476-e98dc490bbee.png) \
+
+
+asda
 
 
 
