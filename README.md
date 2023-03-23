@@ -79,7 +79,7 @@ When this happens, just reboot back to Desktop Mode and run the ~/1RefreshRateUn
 Do the steps below to easily check if the systemd service is running or not.
 1. Go to Desktop Mode and open up the Steam Client.
 2. On the lower left, click Add Game > Add a Non-Steam Game.
-3. Select any item from the list it doesn't matter as we will change the parameters later on. For this example I chose Ark, and the press Add Selected Programs.
+3. Select any item from the list it doesn't matter as we will change the parameters later on. For this example I chose Ark, and the press Add Selected Programs.\
 ![image](https://user-images.githubusercontent.com/98122529/227317668-d0a39f51-374a-4452-9216-e639ba2618d9.png) \
 4. Find the Ark from the list and select Properties.
 5. Change the shorcut name to 1 - Refresh Rate Unlocker Service Status.
@@ -103,4 +103,7 @@ Do the steps below to easily check if the systemd service is running or not.
          
 5. After reboot, the refresh rate will be back to the default 60Hz.\
 ![image](https://user-images.githubusercontent.com/98122529/225729550-0ac8a2ff-79c3-4bc4-b75f-7a9388f60d74.png)
+
+## Known Issues
+1. When taking a screenshot in-game, the screen will momentarily go blank as it toggles to 60Hz, and then goes back to the custom refresh rate once the screenshot is done.
 
