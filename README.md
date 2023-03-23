@@ -76,20 +76,22 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 ## Optional - Add as non-steam game to easily check if the system service is running
 When a branch change occurs or when a SteamOS update happens, the custom systemd service can get wiped out.\
 When this happens, just reboot back to Desktop Mode and run the ~/1RefreshRateUnlocker/reinstall-service.sh script.\
-Do the steps below to easily check if the systemd service is running or not.
+Do the steps below to easily check if the systemd service is running or not.\
 1. Go to Desktop Mode and open up the Steam Client.
 2. On the lower left, click Add Game > Add a Non-Steam Game.
 3. Select any item from the list it doesn't matter as we will change the parameters later on. For this example I chose Ark, and the press Add Selected Programs.\
-![image](https://user-images.githubusercontent.com/98122529/227317668-d0a39f51-374a-4452-9216-e639ba2618d9.png) \
+![image](https://user-images.githubusercontent.com/98122529/227317668-d0a39f51-374a-4452-9216-e639ba2618d9.png)
+
 4. Find the Ark from the list and select Properties.
 5. Change the shorcut name to 1 - Refresh Rate Unlocker Service Status.
 6. For the target, leave it blank.
 7. For the start in, leave it blank.
 8. For the launch option, enter - /home/deck/1RefreshRateUnlocker/check-service-status.sh 
 9. This is how it should look like - 
-![image](https://user-images.githubusercontent.com/98122529/227318467-c75a1f80-db0f-42a3-8c5a-366946f09798.png) \
+![image](https://user-images.githubusercontent.com/98122529/227318467-c75a1f80-db0f-42a3-8c5a-366946f09798.png)
+
 10. If everything looks OK just close that screen. Run the shortcut to verify it works.
-![image](https://user-images.githubusercontent.com/98122529/227318770-7d921d05-5013-4b62-b476-e98dc490bbee.png) \
+![image](https://user-images.githubusercontent.com/98122529/227318770-7d921d05-5013-4b62-b476-e98dc490bbee.png)
 
 
 ## How to Uninstall
