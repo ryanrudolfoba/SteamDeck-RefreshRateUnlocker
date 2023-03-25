@@ -66,30 +66,8 @@ else
 	sudo cp /bin/gamescope-session /bin/gamescope-session.backup
 	echo Patch the gamescope-session.
 	
-	# check the possible combinations and then patch gamescope-session based on the user choice
-	grep STEAM_DISPLAY_REFRESH_LIMITS=30,60 /bin/gamescope-session
-	if [ $? -eq 0 ]
-	then
-		sed "s/STEAM_DISPLAY_REFRESH_LIMITS=30,60/STEAM_DISPLAY_REFRESH_LIMITS=$Choice/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
-	fi
-
-	grep STEAM_DISPLAY_REFRESH_LIMITS=40,60 /bin/gamescope-session
-	if [ $? -eq 0 ]
-	then
-		sed "s/STEAM_DISPLAY_REFRESH_LIMITS=40,60/STEAM_DISPLAY_REFRESH_LIMITS=$Choice/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
-	fi
-
-	grep STEAM_DISPLAY_REFRESH_LIMITS=30,70 /bin/gamescope-session
-	if [ $? -eq 0 ]
-	then
-		sed "s/STEAM_DISPLAY_REFRESH_LIMITS=30,70/STEAM_DISPLAY_REFRESH_LIMITS=$Choice/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
-	fi
-
-	grep STEAM_DISPLAY_REFRESH_LIMITS=40,70 /bin/gamescope-session
-	if [ $? -eq 0 ]
-	then
-		sed "s/STEAM_DISPLAY_REFRESH_LIMITS=40,70/STEAM_DISPLAY_REFRESH_LIMITS=$Choice/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
-	fi
+	# patch gamescope-session based on the user choice
+	sed "s/STEAM_DISPLAY_REFRESH_LIMITS=..,../STEAM_DISPLAY_REFRESH_LIMITS=$Choice/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
 	
 	sudo cp /bin/gamescope-session.patched /bin/gamescope-session
 	sudo steamos-readonly enable
@@ -119,24 +97,8 @@ if [ \$? -ne 0 ]
 then	echo gamescope-session needs to be patched back to the default values.
 	echo Patch the gamescope-session to the default values.
 	
-	# check the possible combinations and then patch gamescope-session based on the user choice
-	grep STEAM_DISPLAY_REFRESH_LIMITS=30,60 /bin/gamescope-session
-	if [ \$? -eq 0 ]
-	then
-		sed "s/STEAM_DISPLAY_REFRESH_LIMITS=30,60/STEAM_DISPLAY_REFRESH_LIMITS=40,60/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
-	fi
-
-	grep STEAM_DISPLAY_REFRESH_LIMITS=30,70 /bin/gamescope-session
-	if [ \$? -eq 0 ]
-	then
-		sed "s/STEAM_DISPLAY_REFRESH_LIMITS=30,70/STEAM_DISPLAY_REFRESH_LIMITS=40,60/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
-	fi
-
-	grep STEAM_DISPLAY_REFRESH_LIMITS=40,70 /bin/gamescope-session
-	if [ \$? -eq 0 ]
-	then
-		sed "s/STEAM_DISPLAY_REFRESH_LIMITS=40,70/STEAM_DISPLAY_REFRESH_LIMITS=40,60/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
-	fi
+	# patch gamescope-session based on the user choice
+	sed "s/STEAM_DISPLAY_REFRESH_LIMITS=..,../STEAM_DISPLAY_REFRESH_LIMITS=40,60/g" /bin/gamescope-session | sudo tee /bin/gamescope-session.patched > /dev/null
 	
 	sudo cp /bin/gamescope-session.patched /bin/gamescope-session
 	echo gamescope-session is now using the default value 40,60.
