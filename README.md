@@ -6,6 +6,10 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 1. Do this at your own risk!
 2. This is for educational and research purposes only!
 
+## Video Tutorial
+**[If you prefer a video tutorial then click here.](https://youtu.be/YUf-ot1t0PM)**
+
+
 ## Screenshot - choose from one of the options
 ![image](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/assets/98122529/06b7b897-d349-4bfa-8671-c1bc8a3b0120)
 
