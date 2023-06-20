@@ -186,6 +186,7 @@ then
 	# delete systemd service
 	sudo systemctl stop refresh-rate-unlocker.service
 	sudo rm /etc/systemd/system/refresh-rate-unlocker.service
+ 	sudo rm /etc/systemd/system/RefreshRateUnlocker.sh
 	sudo systemctl daemon-reload
 	sudo steamos-readonly enable
 
