@@ -50,7 +50,8 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 
 ## Installation Steps
 **IF YOU ARE USING AN OLDER VERSION OF THIS SCRIPT, UNINSTALL IT FIRST!**
-** IF YOU WANT TO SWITCH FROM 30,60 to 40,70 etc etc, MAKE SURE TO UNINSTALL FIRST AND THEN RE-RUN THE SCRIPT!**
+**IF YOU WANT TO SWITCH FROM 30,60 to 40,70 etc etc, MAKE SURE TO UNINSTALL FIRST AND THEN RE-RUN THE SCRIPT!**
+**[CLICK HERE FOR STEPS ON HOW TO UNINSTALL THE OLD VERSION](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/tree/7ccbc1a4e32f4244b27bf8dd15daaf39f307031a#how-to-uninstall)**
 1. Go into Desktop Mode and open a konsole terminal.
 2. Clone the github repo. \
    cd ~/ \
