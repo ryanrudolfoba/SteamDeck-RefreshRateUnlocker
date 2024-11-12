@@ -118,6 +118,7 @@ then
 	if [ $? -eq 0 ] && [ $(md5sum /usr/bin/gamescope | cut -d " " -f 1) = $gamescope_unlocked_md5sum ]
 	then
 		echo 70Hz mod successfully installed.
+		echo -e "$current_password\n" | sudo -S steamos-readonly enable &> /dev/null
 		exit
 	else
 		echo Error installing the 70Hz mod.
@@ -133,6 +134,7 @@ then
 	if [ $? -eq 0 ] && [ $(md5sum /usr/bin/gamescope | cut -d " " -f 1) = $gamescope_orig_md5sum ]
 	then
 		echo 70Hz mod successfully removed.
+		echo -e "$current_password\n" | sudo -S steamos-readonly enable &> /dev/null
 		exit
 	else
 		echo Error removing the 70Hz mod.
