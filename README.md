@@ -34,15 +34,11 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 
 
 ## Screenshot - choose from one of the options
-![image](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/assets/98122529/06b7b897-d349-4bfa-8671-c1bc8a3b0120)
 
 ## Screenshot - 70Hz Display Refresh Rate
-![image](https://user-images.githubusercontent.com/98122529/225729639-3bb46a85-6ffd-49ac-808d-acd518fc30ce.png)
 
-## Screenshot - Simple GUI Toolbox
-![image](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/assets/98122529/890fcb6f-a71f-4156-adb8-aa14b55fca75)
-![image](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/assets/98122529/2afc4ac4-6522-4941-bdb7-b210c76ba1b0)
-
+## What's New (as of November 12 2024)
+1. SteamOS 3.6.20 support
 
 ## What's New (as of June 20 2023)
 1. Added 20,60 and 20,70.
