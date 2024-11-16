@@ -10,13 +10,13 @@ sleep 2
 
 # define variables here
 steamdeck_model=$(cat /sys/class/dmi/id/board_name | tr '[:upper:]' '[:lower:]')
-gamescope_orig=$PWD/gamescope/gamescope-3.6.20-orig
-gamescope_unlocked=$PWD/gamescope/gamescope-3.6.20-unlocked
+gamescope_orig=$PWD/gamescope/3.6.20/gamescope-3.6.20-orig
+gamescope_unlocked=$PWD/gamescope/3.6.20/gamescope-3.6.20-unlocked
 steamos_version=$(cat /etc/os-release | grep -i version_id | cut -d "=" -f2)
 gamescope_orig_md5sum=c522838a242fabe519958903253a2a4c
 gamescope_unlocked_md5sum=641af753637c710f72748d4ec7fb655b
-actual_gamescope_orig_md5sum=$(md5sum $PWD/gamescope/gamescope-3.6.20-orig | cut -d " " -f1)
-actual_gamescope_unlocked_md5sum=$(md5sum $PWD/gamescope/gamescope-3.6.20-unlocked | cut -d " " -f1)
+actual_gamescope_orig_md5sum=$(md5sum $PWD/gamescope/3.6.20/gamescope-3.6.20-orig | cut -d " " -f1)
+actual_gamescope_unlocked_md5sum=$(md5sum $PWD/gamescope/3.6.20/gamescope-3.6.20-unlocked | cut -d " " -f1)
 
 # sanity check - make sure this is on LCD model
 if [ $steamdeck_model = "jupiter" ]
@@ -83,7 +83,7 @@ fi
 zenity --question --title "Steam Deck Refresh Rate Unlocker" --text \
 	"WARNING: This is for educational and research purposes only! \
 	\n\nThe script has been tested with Steam Deck LCD and the original LCD panel. \
-	\nThis may / may not work with Dnd may / may not cause damage to a DeckHD panel. \
+	\nThis may / may not work with and may / may not cause damage to a DeckHD panel. \
 	\nIf you use a DeckHD panel then proceed at your own risk! \
 	\n\nThe author of this script takes no responsibility for any damage. \
 	\n\nDo you agree to the terms and conditions ?" --width 650 --height 75
