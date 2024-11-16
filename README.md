@@ -33,11 +33,13 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 </p>
 
 
-## Screenshot - choose from one of the options
+## Screenshot - Warning / Disclaimer
+![image](https://github.com/user-attachments/assets/f014aede-10bf-4433-849c-2e9e3f887c26)
 
-## Screenshot - 70Hz Display Refresh Rate
+## Screenshot - choose from one of the option
+![image](https://github.com/user-attachments/assets/b37929c3-999f-4cb1-a4d9-92624458044b)
 
-## What's New (as of November 12 2024)
+## What's New (as of November 16 2024)
 1. SteamOS 3.6.20 support
 
 ## What's New (as of June 20 2023)
