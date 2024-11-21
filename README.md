@@ -82,39 +82,21 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
    chmod +x install-RefreshRateUnlocker.sh \
    ./install-RefreshRateUnlocker.sh
    
-4. The script will check if sudo passwword is already set.\
-![image](https://user-images.githubusercontent.com/98122529/225724178-364284ac-f504-4798-b5e5-a03001dda5da.png)
+4. The script will perform several sanity checks and afterwards display a WARNING / DISCLAIMER -\
+![image](https://github.com/user-attachments/assets/f014aede-10bf-4433-849c-2e9e3f887c26)
+   
+6. Make sure you understand the WARNING / DISCLAIMER and press YES to proceed. From here on you can choose to INSTALL or UNINSTALL -\
+![image](https://github.com/user-attachments/assets/b37929c3-999f-4cb1-a4d9-92624458044b)
 
-   a. If the sudo password is already set, enter the current sudo password and the script will continue to run. Once you see this screen then the install is done!\
-![image](https://user-images.githubusercontent.com/98122529/225747904-d0352779-40ef-4dfb-afad-c473b2a9bc5b.png)
-
-   b. If wrong sudo password is provided the script will exit immdediately. Re-run the script and enter the correct sudo password!\
-![image](https://user-images.githubusercontent.com/98122529/225724539-d73dc9ce-c468-49d1-8d2c-83276bfc34bb.png)
+7. Once the install is done, reboot the Steam Deck for changes to take effect.
          
-   c. If the sudo password is blank / not yet set, the script will prompt to setup the sudo password. Re-run the script again to continue.\
-![image](https://user-images.githubusercontent.com/98122529/225725477-33f8ffaa-13a1-452e-b993-aceb3192726f.png)
-
-
-5. Make your selection.\
-![image](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/assets/98122529/06b7b897-d349-4bfa-8671-c1bc8a3b0120)
-
-6. Once the install is done, reboot the Steam Deck for changes to take effect.
-         
-7. After reboot, the custom refresh rate will be available. It can be set as high as 70Hz!\
-![image](https://user-images.githubusercontent.com/98122529/225729592-a172cf55-f34c-400a-be56-e2dc68032c4e.png)
 
 ## How to Uninstall
-1. Go into Desktop Mode and launch RefreshRateUnlocker Toolbox icon from the desktop.
-![image](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/assets/98122529/1c1bb2a4-b90b-455e-9efc-269ceeb14273)
+1. Go into Desktop Mode and run the script again. Select UNINSTALL -\
+![image](https://github.com/user-attachments/assets/b37929c3-999f-4cb1-a4d9-92624458044b)
 
-2. Select the option called Uninstall and press OK.
-![image](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/assets/98122529/f76d934d-2725-49dd-9799-2cb0710ee034)
-
-3. Once the uninstall is done, reboot the Steam Deck for changes to take effect.
+2. Once the uninstall is done, reboot the Steam Deck for changes to take effect.
          
-4. After reboot, the refresh rate will be back to the default 60Hz.\
-![image](https://user-images.githubusercontent.com/98122529/225729550-0ac8a2ff-79c3-4bc4-b75f-7a9388f60d74.png)
-
 ## Known Issues
 1. When taking a screenshot in-game, the screen will momentarily go blank as it toggles to 60Hz, and then goes back to the custom refresh rate once the screenshot is done.
 
