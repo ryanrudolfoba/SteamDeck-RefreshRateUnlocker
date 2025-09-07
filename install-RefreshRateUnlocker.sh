@@ -28,6 +28,23 @@ else
 	exit
 fi
 
+# sanity checks are all good. lets go!
+# display warning / disclaimer
+zenity --question --title "Steam Deck Refresh Rate Unlocker" --text \
+	"WARNING: This is for educational and research purposes only! \
+	\n\nThe script has been tested with Steam Deck LCD and the original LCD panel. \
+	\nThis may / may not work with and may / may not cause damage to a DeckHD / DeckSight panel. \
+	\n\nIf you use a DeckHD / DeckSight panel then proceed at your own risk! \
+	\n\nThe author of this script takes no responsibility for any damage. \
+	\n\nDo you agree to the terms and conditions ?" --width 700 --height 75
+			if [ $? -eq 1 ]
+			then
+				echo User DOES NOT agree with the terms and conditions. Exit immediately.
+				exit
+			else
+				echo User agrees to the terms and conditions. Continue with the script.
+			fi
+
 # create gamescope user script directory
 if [ -d $SCRIPT_LOCATION ]
 then
