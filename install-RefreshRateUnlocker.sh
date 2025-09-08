@@ -16,8 +16,7 @@ SCRIPT_LOCATION=$HOME/.config/gamescope/scripts
 SCRIPT_NAME=valve.steamdeck.lcd.70Hz.lua
 
 # sanity checks - make sure this is on Valve Steam Deck LCD and running on supported SteamOS version.
-if [[ "$STEAMOS_VERSION" == *"$SUPPORTED_VERSION"* ]] && [ $MODEL = "Jupiter" ]
-
+if [[ "$STEAMOS_VERSION" == "$SUPPORTED_VERSION"* ]] && [ "$MODEL" == "Jupiter" ]
 then
 	echo Script is running on $MODEL Steam Deck LCD using SteamOS $STEAMOS_VERSION.
 	echo This is a supported version / configuration - Steam Deck $MODEL and SteamOS $STEAMOS_VERSION.
@@ -49,19 +48,25 @@ zenity --question --title "Steam Deck Refresh Rate Unlocker" --text \
 if [ -d $SCRIPT_LOCATION ]
 then
 	echo The location $SCRIPT_LOCATION already exists.
-	echo Copying 70Hz LCD mod.
 else
 	echo The location $SCRIPT_LOCATION does not exist. Creating it now.
-	mkdir -p $HOME/.config/gamescope/scripts
-	echo Copying 70Hz LCD mod.
+	mkdir -p $SCRIPT_LOCATION
 fi
 
-
-# copy the existing gamescope template file to the gamescope user script directory
-cp /usr/share/gamescope/scripts/00-gamescope/displays/valve.steamdeck.lcd.lua $SCRIPT_LOCATION/$SCRIPT_NAME
+# copy the existing gamescope template to the gamescope user script directory
+if [ -e $LCD_TEMPLATE ]
+then
+	echo Copying 70Hz LCD mod.
+	cp $LCD_TEMPLATE $SCRIPT_LOCATION/$SCRIPT_NAME
+else
+	echo Default Gamescope template not found!
+	echo Please open an issue report on my GitHub repo or leave a comment on the YT channel - 10MinuteSteamDeckGamer.
+	exit
+fi
 
 # make the changes via sed string manipulation
-sed -i '/50, 51, 52, 53, 54, 55, 56, 57, 58, 59,/!b;n;c\\t60, 61, 62, 63, 64, 65, 66, 67, 68, 69, \n\t70' $HOME/.config/gamescope/scripts/valve.steamdeck.lcd.70Hz.lua
+echo Activating 70Hz LCD mod.
+sed -i '/50, 51, 52, 53, 54, 55, 56, 57, 58, 59,/!b;n;c\\t60, 61, 62, 63, 64, 65, 66, 67, 68, 69, \n\t70' $SCRIPT_LOCATION/$SCRIPT_NAME
 
 if [ $? -eq 0 ]
 then
