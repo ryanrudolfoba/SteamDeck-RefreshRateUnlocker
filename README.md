@@ -29,15 +29,18 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 **[If you prefer a video tutorial then click here.](https://youtu.be/6loG-BXmeQA)**
 
 <p align="center">
-<a href="https://youtu.be/6loG-BXmeQA"> <img src="https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/blob/main/video.png"/> </a>
+<a href="https://www.youtube.com/watch?v=4Yx96soCly0"> <img src="https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/blob/main/video.png"/> </a>
 </p>
 
 
 ## Screenshot - Warning / Disclaimer
 ![image](https://github.com/user-attachments/assets/f014aede-10bf-4433-849c-2e9e3f887c26)
 
-## Screenshot - choose from one of the option
-![image](https://github.com/user-attachments/assets/b37929c3-999f-4cb1-a4d9-92624458044b)
+## How to Uninstall
+Delete the file `~/.config/gamescope/scripts/valve.steamdeck.lcd.70Hz.lua`
+
+## What's New (as of September 16 2025)
+1. Script has been rewritten to work with SteamOS 3.7.x and above only.
 
 ## What's New (as of November 16 2024)
 1. SteamOS 3.6.20 support
