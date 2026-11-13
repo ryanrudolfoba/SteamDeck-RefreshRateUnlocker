@@ -39,6 +39,14 @@ Discord user dan2wik for the idea on overclocking the display panel to 70Hz!
 ## How to Uninstall
 Delete the file `~/.config/gamescope/scripts/valve.steamdeck.lcd.70Hz.lua`
 
+## What's New (as of November 2026)
+1. Works on SteamOS 3.9 and newer - there is no upper version limit anymore. The mod is installed whenever SteamOS ships the stock gamescope Steam Deck LCD profile.
+2. New one-click installer: download `RefreshRateUnlocker.desktop` and double-click it in Desktop Mode. It downloads / updates this repo and starts the script. No terminal needed.
+3. On SteamOS 3.7+ the mod is now a small gamescope script that only changes the refresh rate list of the stock profile, so Valve's future fixes to the rest of the profile keep working.
+4. No sudo password needed on SteamOS 3.7+. On 3.5 / 3.6.20, if no sudo password is set, a temporary one is set and removed again automatically (same approach as the Decky Loader installer).
+5. Desktop Mode detection works under Wayland (default since SteamOS 3.8), returns to Game Mode with `steamos-session-select`, and every step is checked - the script never reports success if something failed.
+6. Automated tests (GitHub Actions) on every change and weekly against the latest upstream gamescope profile.
+
 ## What's New (as of September 16 2025)
 1. Script has been rewritten to work with SteamOS 3.7.x and above only.
 
@@ -63,42 +71,51 @@ Delete the file `~/.config/gamescope/scripts/valve.steamdeck.lcd.70Hz.lua`
 1. initial release
 
 ## What does this script do?!?
-1. The script checks if the gamescope-session is using the default values 40,60Hz refresh rates.
-2. If it's the default values, the script will create a backup of the file and then "patches" accordingly to what the user has chosen.
-3. The script creates a folder called ~/1RefreshRateUnlocker that contains additional helper scripts. Do not delete this folder!
-4. The script checks the gamescope-session every startup if it needs to be "patched" and applies the patch if needed.
-5. There is an uninstall script if end-user wants to revert any changes made.
+SteamOS 3.7 and newer:
+1. Checks that it runs in Desktop Mode on a Steam Deck LCD and that SteamOS ships the stock gamescope Steam Deck LCD profile (`/usr/share/gamescope/scripts/00-gamescope/displays/valve.steamdeck.lcd.lua`).
+2. Writes a small gamescope script `~/.config/gamescope/scripts/valve.steamdeck.lcd.70Hz.lua` that changes the allowed refresh rates of that stock profile from 40-60Hz to 40-70Hz. Gamescope runs user scripts after its own profiles, so everything else (colorimetry, mode timings, panel detection) stays as shipped with SteamOS.
+3. Nothing in the read-only system partition is changed, and the mod survives SteamOS updates.
+
+SteamOS 3.6.20 - replaces `/usr/bin/gamescope` with a patched binary (md5 checked). SteamOS 3.5 - changes `STEAM_DISPLAY_REFRESH_LIMITS` in `/bin/gamescope-session`.
 
 ## Prerequisites for SteamOS
-1. sudo password should already be set by the end user. If sudo password is not yet set, the script will ask to set it up.
+1. SteamOS 3.7 and newer: nothing - no sudo password is needed.
+2. SteamOS 3.5 / 3.6.20: if a sudo password is set, the script asks for it. If no password is set, the script sets a temporary one and removes it again when it finishes.
 
 ## Installation Steps
-**IF YOU ARE USING AN OLDER VERSION OF THIS SCRIPT, UNINSTALL IT FIRST!**
-**IF YOU WANT TO SWITCH FROM 30,60 to 40,70 etc etc, MAKE SURE TO UNINSTALL FIRST AND THEN RE-RUN THE SCRIPT!**
-**[CLICK HERE FOR STEPS ON HOW TO UNINSTALL THE OLD VERSION](https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/tree/7ccbc1a4e32f4244b27bf8dd15daaf39f307031a#how-to-uninstall)**
+**Option 1 - one click, no terminal (recommended)**
+1. Go into Desktop Mode.
+2. Download [RefreshRateUnlocker.desktop](https://raw.githubusercontent.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/main/RefreshRateUnlocker.desktop) (right-click the link → *Save Link As…*) and save it to the Desktop. Make sure the file name ends with `.desktop`.
+3. Double-click **Refresh Rate Unlocker (70Hz)** on the Desktop. If KDE asks whether to run the file, allow it.
+4. A Konsole window opens, downloads (or updates) this repo into `~/SteamDeck-RefreshRateUnlocker` and starts the script. Continue with step 5 below.
+
+Keep the shortcut - double-click it again any time to update, re-install or uninstall. If `~/SteamDeck-RefreshRateUnlocker` already exists and is a clone of this repo, it is updated; anything else in that folder is kept and renamed to `~/SteamDeck-RefreshRateUnlocker.backup-<date>`.
+
+**Option 2 - terminal**
 1. Go into Desktop Mode and open a konsole terminal.
-2. Clone the github repo. \
+2. Clone the github repo (or `cd ~/SteamDeck-RefreshRateUnlocker && git pull` if you already have it). \
    cd ~/ \
    git clone https://github.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker.git
 3. Execute the script! \
    cd ~/SteamDeck-RefreshRateUnlocker \
-   chmod +x install-RefreshRateUnlocker.sh \
    ./install-RefreshRateUnlocker.sh
-   
-4. The script will perform several sanity checks and afterwards display a WARNING / DISCLAIMER -\
+
+**Then (both options)**
+
+5. The script will perform several sanity checks and afterwards display a WARNING / DISCLAIMER -\
 ![image](https://github.com/user-attachments/assets/f014aede-10bf-4433-849c-2e9e3f887c26)
-   
+
 6. Make sure you understand the WARNING / DISCLAIMER and press YES to proceed. From here on you can choose to INSTALL or UNINSTALL -\
 ![image](https://github.com/user-attachments/assets/b37929c3-999f-4cb1-a4d9-92624458044b)
 
-7. Once the install is done, reboot the Steam Deck for changes to take effect.
-         
+7. Once the install is done, the Steam Deck returns to Game Mode automatically. Open the Quick Access menu → Performance - the refresh rate now goes up to 70Hz.
+
 
 ## How to Uninstall
-1. Go into Desktop Mode and run the script again. Select UNINSTALL -\
+1. Go into Desktop Mode and run the script again (or double-click the **Refresh Rate Unlocker (70Hz)** shortcut). Select UNINSTALL -\
 ![image](https://github.com/user-attachments/assets/b37929c3-999f-4cb1-a4d9-92624458044b)
 
-2. Once the uninstall is done, reboot the Steam Deck for changes to take effect.
+2. Once the uninstall is done, the stock 40-60Hz range is back. On SteamOS 3.7+ the Steam Deck returns to Game Mode automatically; on 3.5 / 3.6.20 reboot the Steam Deck.
          
 ## Known Issues
 1. When taking a screenshot in-game, the screen will momentarily go blank as it toggles to 60Hz, and then goes back to the custom refresh rate once the screenshot is done.
