@@ -1,0 +1,37 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  # weekly check against the latest upstream gamescope Steam Deck LCD profile
+  schedule:
+    - cron: "17 6 * * 1"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lua
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lua5.4
+
+      - name: ShellCheck
+        run: shellcheck -S warning install-RefreshRateUnlocker.sh 70HzLCD.sh bootstrap.sh tests/run-tests.sh tests/run-legacy-tests.sh
+
+      - name: End-to-end tests (latest gamescope profile)
+        run: REQUIRE_LUA=1 bash tests/run-tests.sh
+
+      - name: Legacy SteamOS 3.5 / 3.6.20 and sudo password tests
+        run: sudo bash tests/run-legacy-tests.sh
+
+      - name: Release asset matches RefreshRateUnlocker.desktop (if a release has it)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if ! curl -fsSL https://github.com/${{ github.repository }}/releases/latest/download/RefreshRateUnlocker.desktop -o release.desktop; then
+            echo "No release with RefreshRateUnlocker.desktop - skipping"; exit 0
+          fi
+          # KDE (KConfig) trims each line, so Windows (CRLF) line endings still work - only warn about them
+          if grep -q $'\r' release.desktop; then echo "::warning::Release asset has Windows (CRLF) line endings"; fi
+          diff <(tr -d '\r' < release.desktop) RefreshRateUnlocker.desktop

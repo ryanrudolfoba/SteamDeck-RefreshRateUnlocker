@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Refresh Rate Unlocker (70Hz)
+Comment=Install or remove the Steam Deck LCD 70Hz refresh rate mod
+Icon=video-display
+Exec=konsole --hold -e bash -c "bash <(curl -fsSL https://raw.githubusercontent.com/ryanrudolfoba/SteamDeck-RefreshRateUnlocker/main/bootstrap.sh)"
+Terminal=false
+Categories=Utility;Settings;
